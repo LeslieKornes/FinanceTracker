@@ -10,12 +10,11 @@ end
 gem 'rails', '~> 5.1.4'
 
 gem 'devise'
-
 gem 'twitter-bootstrap-rails'
-
 gem 'jquery-rails'
-
 gem 'devise-bootstrap-views'
+gem 'stock_quote'
+
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets
