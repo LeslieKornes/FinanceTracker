@@ -2,7 +2,7 @@
 
 <h3>Search for Stock</h3>
 <div id="stock-lookup">
-  <%= form_tag "#", method: :get, id: "stock-lookup-form" do %>
+  <%= form_tag search_stocks_path, method: :get, id: "stock-lookup-form" do %>
     <div class="form-group row no-padding text-center col-md-12">
       <div class="col-md-10">
         <%= text_field_tag :stock, params[:stock],
@@ -17,3 +17,11 @@
     </div>
   <% end %>
 </div>
+
+<% if @stock %>
+  <div class="well results-block">
+    <strong>Symbol: &nbsp;</strong><%= @stock.ticker %>&nbsp;&nbsp;
+    <strong>Name:</strong> &nbsp;<%= @stock.name %>&nbsp;&nbsp;
+    <strong>Price: &nbsp;</strong><%= @stock.last_price %>&nbsp;&nbsp;
+  </div>
+<% end %>
