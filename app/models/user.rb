@@ -13,4 +13,8 @@ class User < ApplicationRecord
        user_stocks.where(stock_id: stock.id).exists?
      end
 
+     def stock_under_limit?
+       (user_stocks.count < 10)
+     end
+
 end
