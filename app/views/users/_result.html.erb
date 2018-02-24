@@ -9,7 +9,19 @@
     <strong>Symbol: </strong><%= @stock.ticker %>
     <strong>Name: </strong><%= @stock.name %>
     <strong>Price: </strong><%= @stock.last_price %>
-    <%= link_to "Follow", user_stocks_path(user: current_user, stock_ticker: @stock.ticker),
+    <% if current_user.can_add_stock?(@stock.ticker) %>
+      <%= link_to "Follow", user_stocks_path(user: current_user, stock_ticker: @stock.ticker),
                 class: "btn btn-success btn-xs", method: :post %>
+    <% else %>
+      <span class="label label-default">
+        Stock cannot be added because
+        <% if !current_user.under_stock_limit? %>
+          you are following the maximum number (10) of stocks possible.
+        <% end %>
+        <% if current_user.stock_already_added?(@stock.ticker) %>
+          you are already following this stock.
+        <% end %>
+      </span>
+    <% end %>
   </div>
 <% end %>
