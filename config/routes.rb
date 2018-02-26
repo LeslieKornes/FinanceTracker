@@ -15,4 +15,6 @@ Rails.application.routes.draw do
 
   get 'my_friends', to: 'users#my_friends'
 
+  get 'search_friends', to: 'users#search'
+
 end
