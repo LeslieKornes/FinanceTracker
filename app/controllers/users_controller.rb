@@ -22,4 +22,8 @@ class UsersController < ApplicationController
     end
   end
 
+  def add_friend(user, friend)
+
+  end
+
 end
